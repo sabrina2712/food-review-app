@@ -1,0 +1,8 @@
+.App {
+  text-align: center;
+}
+.image1, image2,  image3 {
+border: 1px solid grey;
+width: 100px;
+height: 20px;
+}
