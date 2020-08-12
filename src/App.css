@@ -1,8 +1,37 @@
 .App {
   text-align: center;
 }
-.image1, image2,  image3 {
-border: 1px solid grey;
-width: 100px;
-height: 20px;
+
+.logo{
+  
+    height: 25px;
+    width: 25px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display:flex;
+    justify-content: flex-start;
+    margin-left: 230px;
+    margin-bottom: 10px;
+    
 }
+.form{
+  display: flex;
+  
+  flex-wrap:wrap;
+  
+}
+.form input{
+  width: 150px;
+  height: 25px;
+}
+.add-container{
+  padding: 2px;
+  height: 35px;
+  margin: 8px;
+}
+.submit{
+  width: 100px;
+  height: 25px;
+  margin: 8px;
+}
+
