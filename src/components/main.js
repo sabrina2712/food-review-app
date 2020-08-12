@@ -21,16 +21,7 @@ class MyFoodReview extends React.Component{
                 Review:"" 
               }
 }
-   
-    clickHandler = event => {
-    
-      console.log(event.target.name)
-       
-        let curName =  event.target.name;
-        this.setState(
-   { name: curName })
-        
-      };
+  
 
       changeHandler=(evt)=>{
           let name = this.state.name
@@ -41,115 +32,91 @@ class MyFoodReview extends React.Component{
   
     render(){
 
-        const {name,Restaurant,Location, Review}= this.state
+    const {name,Restaurant,Location, Review}= this.state
         return <>
-        <form className="form">
-      
             <label>{name}</label>
-            <input value ={this.state.name} placeholder="name" 
-                        className="name"  onChange={(e)=>{
-                            this.changeHandler(e)
-                }}
-                        />
-           <label>{Restaurant}</label>
+            <input className="name"  onChange={(e)=>{this.changeHandler(e) }} />
+            <label>{Restaurant}</label>
             <input type ="text" name="restaurant" placeholder="restaurant" 
-                        className="restaurant"  onChange={(e)=>{
-                                    this.changeHandler(e)
-                        }}
-                        />
+                        className="restaurant"  onChange={(e)=>{this.changeHandler(e)}}/>
             <label>{Location}</label>
-            <input type ="text" name="location" placeholder="location"
-                        className="location" 
-                        />
+            <input type ="text" name="location" placeholder="location" className="location"/>
             <label>{Review}</label>
-            <input type ="text" name="review" placeholder="review" 
-                        className="review"  
-                       />
+            <input type ="text" name="review" placeholder="review" className="review"/>
             <button className="add-container"><span>Add Image</span></button>
-            <input type ="submit" value="Submit" className="submit"  
-            onSubmit={this.clickHandler}
-          />
-        </form>
-            
-            <div class="active-cyan-4 mb-4">
+        
+        <div class="active-cyan-4 mb-4">
             <input class="form-control" type="text" placeholder="Search" aria-label="Search"/>
-            </div>
+        </div>
 
-            <div class= "container-fluid">
-         <h4>Complex Gallery</h4>
-         <div class= "row d-inline-flex">
+        <div class= "container-fluid">
+            <h4>Complex Gallery</h4>
+        <div class= "row d-inline-flex">
          
-            <div class ="col-12 col-sm-6 col-md-4 p-2">
-               <div class="d-flex flex-column text-center border height100">
+        <div class ="col-12 col-sm-6 col-md-4 p-2">
+            <div class="d-flex flex-column text-center border height100">
                 <div className="logo"></div>
-                <h2>Horse</h2>
-                <div>
-                    <img src={horse} width={"500px"} height={"400px"}/>
-                </div>
-                
-                <p>Info..about Horse</p>
-                <div> Location...</div>
-               </div>
+                    <h2>{this.state.name}</h2>
+                    <div>
+                        <img src={horse} width={"500px"} height={"400px"}/>
+                    </div>
+                    <p>Info..about Horse</p>
+                    <div> Location...</div>
             </div>
+        </div>
           
-            <div class ="col-12 col-sm-6 col-md-4 p-2">
-               <div class="d-flex flex-column text-center border height100">
-                    <div className="logo"></div>
+        <div class ="col-12 col-sm-6 col-md-4 p-2">
+            <div class="d-flex flex-column text-center border height100">
+                <div className="logo"></div>
                     <h2>Bird</h2>
                     <div>
                         <img src={bird} width={"500px"} height={"400px"}/>
                     </div>
                     <p>Info..about Horse</p>
                     <div> Location...</div>
-                    </div>
             </div>
+        </div>
        
-            <div class ="col-12 col-sm-6 col-md-4 p-2">
-               <div class="d-flex flex-column text-center border height100">
-                <h2>cattle</h2>
-                <div>
-                    <img src={cattle}  width={"500px"} height={"400px"}/>
-                </div>
-                
-                <p>Info..about Horse</p>
-                <div> Location...</div>
-               </div>
+        <div class ="col-12 col-sm-6 col-md-4 p-2">
+            <div class="d-flex flex-column text-center border height100">
+                    <h2>cattle</h2>
+                    <div>
+                        <img src={cattle}  width={"500px"} height={"400px"}/>
+                    </div>
+                    <p>Info..about Horse</p>
+                    <div> Location...</div>
             </div>
+        </div>
          
-            <div class ="col-12 col-sm-6 col-md-4 p-2">
-               <div class="d-flex flex-column text-center border height100">
+        <div class ="col-12 col-sm-6 col-md-4 p-2">
+            <div class="d-flex flex-column text-center border height100">
                 <div className="logo"></div>
-                <h2>Lama</h2>
-                <div>
-                    <img src={lama}  width={"500px"} height={"400px"}/>
-                </div>
-                
-                <p>Info..about Horse</p>
-                <div> Location...</div>
+                    <h2>Lama</h2>
+                    <div>
+                        <img src={lama}  width={"500px"} height={"400px"}/>
+                    </div>
+                    <p>Info..about Horse</p>
+                    <div> Location...</div>
             </div>
-            </div>
+        </div>
            
-            <div class ="col-12 col-sm-6 col-md-4 p-2">
-               <div class="d-flex flex-column text-center border height100">
+        <div class ="col-12 col-sm-6 col-md-4 p-2">
+            <div class="d-flex flex-column text-center border height100">
                 <div className="logo"></div>
-                <h2>Lemur</h2>
+                    <h2>Lemur</h2>
                 <div>
                     <img src={lemur}  width={"500px"} height={"400px"}/>
                 </div>
-                
                 <p>Info..about Horse</p>
                 <div> Location...</div>
-               </div>
             </div>
-        
+        </div>
             <div class ="col-12 col-sm-6 col-md-4 p-2">
-               <div class="d-flex flex-column text-center border height100">
-                <div className="logo"><span>Dog</span></div>
-                
+                <div class="d-flex flex-column text-center border height100">
+                    <div className="logo"><span>Dog</span></div>
                 <div>
                     <img src={dog}  width={"500px"} height={"400px"}/>
                 </div>
-                
                 <p>Info..about Horse</p>
                 <div> Location...</div>
                </div>
@@ -157,7 +124,7 @@ class MyFoodReview extends React.Component{
          </div>
       </div>
   
-         </>
+    </>
         
     }
 }
