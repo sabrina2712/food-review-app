@@ -13,119 +13,68 @@ import lemur from "./images/lemur-7.jpg"
 class MyFoodReview extends React.Component{
     constructor(props) {
         super(props);
-        this.state= {
+        this.state = {
+            name: '',
+            restaurant: '',
+            location: '',
+            review: '',
+            newUser: ""
+        };
+    
+    }
+    
+    
+    handleSubmit(event) {
 
-                name: " ",
-                Restaurant: "",
-                Location: "",
-                Review:"" 
-              }
-}
-  
+        
+     }
+    
+    handleName= (event)=> {
+        this.setState({name: event.target.value});
+    }
+    
+    handleRestaurant(event) {
+        this.setState({restaurant: event.target.value});
+    }
+    
+    handleLocation(event) {
+        this.setState({location: event.target.value});
+    }
+    
+    handleReview(event) {
+        this.setState({review: event.target.value});
+    }
 
-      changeHandler=(evt)=>{
-          let name = this.state.name
-          this.setState({
-                name:  evt.target.value
-          })
-      }
-  
     render(){
 
-    const {name,Restaurant,Location, Review}= this.state
-        return <>
-            <label>{name}</label>
-            <input className="name"  onChange={(e)=>{this.changeHandler(e) }} />
-            <label>{Restaurant}</label>
-            <input type ="text" name="restaurant" placeholder="restaurant" 
-                        className="restaurant"  onChange={(e)=>{this.changeHandler(e)}}/>
-            <label>{Location}</label>
-            <input type ="text" name="location" placeholder="location" className="location"/>
-            <label>{Review}</label>
-            <input type ="text" name="review" placeholder="review" className="review"/>
-            <button className="add-container"><span>Add Image</span></button>
-        
-        <div class="active-cyan-4 mb-4">
-            <input class="form-control" type="text" placeholder="Search" aria-label="Search"/>
+    
+   
+    return ( <div>
+        <div>
+            <label>Name</label>
+            <input type="text" name="Name" placeholder="Email" value={this.state.name} onChange={this.handleName} />
+            <label>Restaurant</label>
+            <input type="restaurant" name="restaurant" placeholder="restaurant" value={this.state.restaurant} onChange={this.handleRestaurant} />
+            <label>Location: </label>
+            <input type="text" name="location" placeholder="location" value={this.state.location} onChange={this.handleLocation} />
+            <label>Review </label>
+            <input type="text" name="review" placeholder="review" value={this.state.review} onChange={this.handleReview} />
+            <input type="submit" value="Add User" onClick={this.handleSubmit} />
         </div>
-
-        <div class= "container-fluid">
+    
             <h4>Complex Gallery</h4>
-        <div class= "row d-inline-flex">
-         
-        <div class ="col-12 col-sm-6 col-md-4 p-2">
-            <div class="d-flex flex-column text-center border height100">
-                <div className="logo"></div>
-                    <h2>{this.state.name}</h2>
-                    <div>
-                        <img src={horse} width={"500px"} height={"400px"}/>
-                    </div>
-                    <p>Info..about Horse</p>
-                    <div> Location...</div>
-            </div>
-        </div>
-          
-        <div class ="col-12 col-sm-6 col-md-4 p-2">
-            <div class="d-flex flex-column text-center border height100">
-                <div className="logo"></div>
-                    <h2>Bird</h2>
-                    <div>
-                        <img src={bird} width={"500px"} height={"400px"}/>
-                    </div>
-                    <p>Info..about Horse</p>
-                    <div> Location...</div>
-            </div>
-        </div>
        
-        <div class ="col-12 col-sm-6 col-md-4 p-2">
-            <div class="d-flex flex-column text-center border height100">
-                    <h2>cattle</h2>
-                    <div>
-                        <img src={cattle}  width={"500px"} height={"400px"}/>
-                    </div>
-                    <p>Info..about Horse</p>
-                    <div> Location...</div>
+                <div className="container">
+
+                    <h2>{this.state.name}</h2>
+                   
+                    <p>Info..{this.state.restaurant}</p>
+                    <div> Location...{this.state.location}</div>
+                    <div> Review...{this.state.review}</div>
+    <div> {this.state.newUser}</div>
             </div>
-        </div>
-         
-        <div class ="col-12 col-sm-6 col-md-4 p-2">
-            <div class="d-flex flex-column text-center border height100">
-                <div className="logo"></div>
-                    <h2>Lama</h2>
-                    <div>
-                        <img src={lama}  width={"500px"} height={"400px"}/>
-                    </div>
-                    <p>Info..about Horse</p>
-                    <div> Location...</div>
             </div>
-        </div>
-           
-        <div class ="col-12 col-sm-6 col-md-4 p-2">
-            <div class="d-flex flex-column text-center border height100">
-                <div className="logo"></div>
-                    <h2>Lemur</h2>
-                <div>
-                    <img src={lemur}  width={"500px"} height={"400px"}/>
-                </div>
-                <p>Info..about Horse</p>
-                <div> Location...</div>
-            </div>
-        </div>
-            <div class ="col-12 col-sm-6 col-md-4 p-2">
-                <div class="d-flex flex-column text-center border height100">
-                    <div className="logo"><span>Dog</span></div>
-                <div>
-                    <img src={dog}  width={"500px"} height={"400px"}/>
-                </div>
-                <p>Info..about Horse</p>
-                <div> Location...</div>
-               </div>
-            </div>
-         </div>
-      </div>
-  
-    </>
-        
-    }
-}
+            )
+     
+    }}
 export  default MyFoodReview;
