@@ -10,71 +10,80 @@ import horse from "./images/horse-4.jpg"
 import lama from "./images/lama- 6.jpg"
 import lemur from "./images/lemur-7.jpg"
 
+
+
+
+        let people= []
+
 class MyFoodReview extends React.Component{
-    constructor(props) {
-        super(props);
-        this.state = {
-            name: '',
-            restaurant: '',
-            location: '',
-            review: '',
-            newUser: ""
-        };
-    
-    }
-    
-    
-    handleSubmit(event) {
-
-        
-     }
-    
-    handleName= (event)=> {
-        this.setState({name: event.target.value});
-    }
-    
-    handleRestaurant(event) {
-        this.setState({restaurant: event.target.value});
-    }
-    
-    handleLocation(event) {
-        this.setState({location: event.target.value});
-    }
-    
-    handleReview(event) {
-        this.setState({review: event.target.value});
-    }
-
-    render(){
-
-    
-   
-    return ( <div>
-        <div>
-            <label>Name</label>
-            <input type="text" name="Name" placeholder="Email" value={this.state.name} onChange={this.handleName} />
-            <label>Restaurant</label>
-            <input type="restaurant" name="restaurant" placeholder="restaurant" value={this.state.restaurant} onChange={this.handleRestaurant} />
-            <label>Location: </label>
-            <input type="text" name="location" placeholder="location" value={this.state.location} onChange={this.handleLocation} />
-            <label>Review </label>
-            <input type="text" name="review" placeholder="review" value={this.state.review} onChange={this.handleReview} />
-            <input type="submit" value="Add User" onClick={this.handleSubmit} />
-        </div>
-    
-            <h4>Complex Gallery</h4>
-       
-                <div className="container">
-
-                    <h2>{this.state.name}</h2>
-                   
-                    <p>Info..{this.state.restaurant}</p>
-                    <div> Location...{this.state.location}</div>
-                    <div> Review...{this.state.review}</div>
-    <div> {this.state.newUser}</div>
-            </div>
-            </div>
-            )
+          state = {
+            people: [],
+            person:{
+              firstName: '',
+              lastName: "",
+              restaurant : " ",
+              review: ""
+          },
+            showName: false,
+          }
+  
      
-    }}
+      
+          handleInput(e, element) {
+
+              console.log(element)
+              const {person}=   this.state
+
+              person[element]= e.target.value
+
+              console.log(person)
+              this.setState({person: person})
+          }
+
+
+          handleSubmit(e) {
+            e.preventDefault();
+            const {people, person} = this.state
+           this.setState({
+             people: people.push(person)
+           })
+          }
+         
+       
+          render() {
+
+           
+            const { firstName, lastName, restaurant, review } = this.state.person;
+            return (   
+              <div>
+                <h2>Add Someone</h2>
+                <form onSubmit={this.handleSubmit}>
+                  <input type="text" value={firstName} onChange={e => this.handleInput(e, 'firstName')} placeholder="firstName" />
+                  <input type="text" value={lastName} onChange={e => this.handleInput(e, 'lastName')} placeholder="lastName" />
+                  <input type="text" value={restaurant} onChange={e => this.handleInput(e, 'restaurant')} placeholder="restaurant" />
+                  <input type="text" value={review} onChange={e => this.handleInput(e, 'review')} placeholder="review" />
+                  <button type="submit">Submit</button>
+                </form>
+                <h2>Exsiting contacts:</h2>
+               
+              </div>
+            ) 
+          }
+       
+          
+}
 export  default MyFoodReview;
+
+          /*  
+          <ul>Name: {people.map((e)=>{
+              return <ol>{e}</ol>
+          })}</ul>*/
+
+          /*  
+          <ul>
+          {people.map((contact) => 
+           <li>{`firstName: ${contact.firstName} LastName: ${contact.lastName} Restaurant: ${contact.restaurant} Review: ${contact.review}`}</li>
+          )}
+        </ul>
+
+        */
