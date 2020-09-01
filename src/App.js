@@ -2,13 +2,14 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 import MyFoodReview from "./components/main"
+import MyForm from "./components/form"
 
 
 function App(){
 
   return (
     <div className="App">
-      <MyFoodReview />
+      <MyForm />
     </div>
   );
 
