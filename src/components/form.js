@@ -1,47 +1,76 @@
 
 import React from 'react';
 
+
+
 class MyForm extends React.Component {
     constructor() {
       super();
       this.state ={
-          inputParsers : [],
-          data: {
-              name: "",
-              age :""
-          }
+          data:{
+            userId: 1,
+            name: "",
+            location: "",
+            restaurant: "",
+            },
+          result : []
         }
     }
-  
-    onInputchange=(event)=> {
-        let data = this.state.data
+    
+    
+    handleChange=(e)=>{
         this.setState({
-          data: event.target.value
-        });
+            [e.target.name]: e.target.value
+        })
     }
-    handleSubmit=(event)=> {
-        event.preventDefault();
-            let data = this.state.data
-            console.log(data);
-            let inputParsers = this.state.inputParsers
-        this.setState({
-            data: Object.assign({},{data}), 
-            inputParsers: inputParsers.push(data)
-        });
+    submitHandler=(e)=>{
+        e.preventDefault()
+        console.log(this.state.result)
+
+        let data = this.state.data
+        this.setState(prevState => ({
+            result: [...prevState.result, data]
+          }))
+       
     }
   
     render() {
       return (<>
-        <form onSubmit={this.handleSubmit}>
-            <label htmlFor="name">Enter username</label>
-            <input  name="name"
-                onChange={(event)=>this.onInputchange(event)}/>
-            <label htmlFor="age">Enter your age</label>
-            <input name="age" 
-                onChange={(event)=>this.onInputchange(event)} />
-            <button>Send data!</button>
+        <form onSubmit={this.submitHandler}>
+            <input 
+            type = "text"
+            className="form-control"
+            name ="name"
+            value={this.state.name}
+            onChange={
+                this.handleChange
+            }
+            />
+            <input 
+            type = "text"
+            className="form-control"
+            name ="location"
+            value={this.state.location}
+            onChange={
+                this.handleChange
+            }
+            />
+            <input 
+            type = "text"
+            className="form-control"
+            name ="restaurant"
+            value={this.state.restaurant}
+            onChange={
+                this.handleChange
+            }
+            />
+            <button type ="submit" className="btn btn success">Submit</button>
+            <div>Name:  {this.state.name}  </div>
+            <div>Location: {this.state.location} </div>
+            <div>Restaurants: {this.state.restaurant}</div>
+            <div>Result:  {this.state.result}  </div>
         </form>
-            <div>{this.state.inputParsers}</div>
+           
          </>
         );
     }
